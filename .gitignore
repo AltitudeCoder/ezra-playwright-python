@@ -1,0 +1,15 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Playwright artifacts
+playwright-report/
+test-results/
+blob-report/
+.trace/
+
+# macOS cruft
+.DS_Store
