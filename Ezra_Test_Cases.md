@@ -21,8 +21,7 @@ Account is successfully created, and the user is redirected to the booking (Sele
 **Priority:** P1 – Critical  
 **Type:** Functional  
 **Status:** Not Executed  
-**Description of Importance:**  
-If a new user is unable to create an account, no further steps in the flow can proceed.
+**Description of Importance:**  If a new visitor is unable to create an account, the entire onboarding flow breaks. Account creation is the front door for all subsequent actions; booking scans, managing appointments, and accessing results. Ensuring this step works reliably is foundational to the Ezra experience.
 
 ---
 
@@ -45,8 +44,7 @@ Plan selection is saved and the health questions popover is displayed.
 **Priority:** P1 – Critical  
 **Type:** Functional  
 **Status:** Not Executed  
-**Description of Importance:**  
-This step defines user engagement with Ezra’s core offering. If users cannot select a plan, the flow breaks and conversion halts.
+**Description of Importance:**  This page is where Members explore and decide which scan best fits their needs. If plan details fail to load, are unclear, or cannot be selected, users lose trust and momentum in the booking process. A malfunction here blocks Members from progressing, resulting in a poor experience and potential revenue loss.
 
 ---
 
@@ -70,8 +68,7 @@ All inputs accept valid values. Country defaults to "United States". No validati
 **Priority:** P1 – Critical  
 **Type:** Functional  
 **Status:** Not Executed  
-**Description of Importance:**  
-If users cannot complete payment, the transaction fails. This validates the entire booking pipeline.
+**Description of Importance:**  The payment step is mission-critical, it validates the system’s ability to process transactions securely and accurately. If users can’t successfully enter or validate payment information, bookings cannot be completed. Verifying this flow ensures a smooth, trustworthy, end-to-end user journey from account creation to purchase confirmation.
 
 ---
 
