@@ -60,17 +60,17 @@ ezra-playwright-python/
 
 **2. Selectors**
 
-* Prefers `id`, ```bash data-test```, or ```bash get_by_role()``` selectors.
+* Prefers `id`, `data-test`, or `get_by_role()` selectors.
 
 * Where unavailable, uses text or class-based locators.
 
-- ⚠️ May break if frontend markup changes; adding ```bash data-test``` attributes would improve reliability.
+- ⚠️ May break if frontend markup changes; adding `data-test` attributes would improve reliability.
 
 **3. Waiting Strategy**
 
-* Uses Playwright’s smart waiting (```bash expect(...).to_be_visible```, ```bash wait_until="domcontentloaded"```).
+* Uses Playwright’s smart waiting (`expect(...).to_be_visible`, `wait_until="domcontentloaded"`).
 
-* Avoids long ```bash sleep()``` calls — short, targeted waits only.
+* Avoids long `sleep()` calls — short, targeted waits only.
 
 **4. Randomized Data**
 
