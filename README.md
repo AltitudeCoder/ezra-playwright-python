@@ -16,15 +16,15 @@ Create a virtual environment
 python3 -m venv .venv
 source .venv/bin/activate
 
-2️⃣ Create a virtual environment
+### 2️⃣ Create a virtual environment
 python3 -m venv .venv
 source .venv/bin/activate
 
-3️⃣ Install dependencies
+### 3️⃣ Install dependencies
 pip install -r requirements.txt
 python -m playwright install chromium
 
-4️⃣ Run tests
+### 4️⃣ Run tests
 python -m pytest -s --browser=chromium --headed -n 1
 
 
