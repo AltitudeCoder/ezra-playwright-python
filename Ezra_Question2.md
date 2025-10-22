@@ -1,4 +1,6 @@
+## Question 2
 ### Part 1
+Please devise an integration test case that prevents members from accessing other’s medical data.
 
 ### TC-IN-100 – Verify Members Cannot Access Other Members’ Medical Data
 
@@ -12,24 +14,28 @@ Member A and Member B have valid accounts.
 **Test Steps:**
 1. Log in as Member A and begin the Medical Questionnaire.
 
-2.Capture the "encounterId" (for test tracking purposes).
+2. Capture the "encounterId" (for test tracking purposes).
 
-3.Attempt to access Member B’s questionnaire by:
+3. Attempt to access Member B’s questionnaire by:
 	>Directly modifying the URL  (e.g., /medical-questionnaire?direct=true&clearData=true&extraData={"encounterId":"##########"})
 
-4.Observe the system’s response. Member A and B are logged out, and returned to the login page.
+4. Observe the system’s response. Member A and B are logged out, and returned to the login page.
 
 **Expected Result:**
-> The system exits the Medical Questionnaire.
-> Member A’s session is scoped only to their own data.
-> No Personally Identifiable Information (PII) or medical data from Member B is exposed.
+* The system exits the Medical Questionnaire.
+* Member A’s session is scoped only to their own data.
+* No Personally Identifiable Information (PII) or medical data from Member B is exposed.
 
-Priority: P0 – Critical
-Type: Integration / Security
-Status: Not Executed
+**Priority:** P0 – Critical
+
+**Type:** Integration / Security
+
+**Status:** Not Executed
+
+---
 
 ### Part 2
-Written HTTP requisitions:
+Submit a written HTTP requisitions:
 
 1. Authenticate as Member A
 POST https://myezra-staging.ezra.com/api/auth/login
@@ -70,19 +76,12 @@ Expected Response:
 "error": "Access denied. You are not authorized to view this questionnaire."
 }
 
-
----
-
-## Integration Points
-- **Authentication Service** – Validates session tokens and enforces user-level access.  
-- **Booking / Encounter Service** – Links `encounterId` to the authenticated Member.  
-- **Medical Questionnaire Service** – Manages storage and retrieval of sensitive health data.  
-- **Front-End Application** – Passes `encounterId` and renders server responses.
-
----
-
-## Description of Importance
+### Description of Importance
 Protecting medical data privacy is critical. This test confirms that cross-user access is impossible, ensuring compliance and user trust in Ezra’s booking and questionnaire system.
 
+---
+
 ### Part 3 
-My approach would be to first classify and prioritize endpoints by sensitivity, making sure the most critical ones, like those handling medical or payment data get the highest focus. I’d combine automated tests, integration checks, and continuous monitoring to catch any gaps, while enforcing strict authentication and authorization at every step. Like with most thing there are tradeoffs, for example extra setup time and maintenance and potential performance impact, but protecting member data is far more important. The goal is a process that’s reliable, repeatable, and keeps sensitive data safe across the board.
+What is your thought process around managing the security quality of these endpoints? What are the tradeoffs and potential risks of your solution?
+
+My approach would be to first classify and prioritize endpoints by sensitivity, making sure the most critical ones, like those handling medical or payment data get the highest focus. I’d combine automated tests, integration checks, and continuous monitoring to catch any misses, while enforcing strict authentication and authorization at every step. Like with most thing there are tradeoffs, for example extra setup time and maintenance and potential performance impact, but protecting member data is far more important. The goal is a process that’s reliable, repeatable, and keeps sensitive data safe across the board.
