@@ -40,7 +40,7 @@ ezra-playwright-python/
 │
 ├── tests/
 │   ├── test_new_member_account.py     # Creates a new account (Join flow)
-│   ├── test_scan_select.py            # Logs in, books scan, selects plan
+│   ├── test_scan_select.py            # Logs in, navigates to Select Scan page, selects plan
 │
 ├── pytest.ini                         # Pytest config
 ├── requirements.txt                   # Dependencies
