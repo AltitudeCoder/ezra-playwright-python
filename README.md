@@ -1,3 +1,14 @@
+# 🧾 Manual Test Cases
+
+A list of 15 detailed manual test cases created as part of this challenge can be found here:
+
+#### ➡️ [Ezra_Test_Cases.md](./Ezra_Test_Cases.md)
+
+The first three test cases include short descriptions explaining why I consider them the most critical.  
+The remaining cases are listed in order of priority — from most to least important.
+
+<br>
+
 # 🧪 Ezra QA Automation — Playwright (Python)
 
 Automated tests built with **Playwright + Pytest** for Ezra’s staging environment.  
