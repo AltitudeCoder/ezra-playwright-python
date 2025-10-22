@@ -60,7 +60,7 @@ ezra-playwright-python/
 
 **2. Selectors**
 
-* Prefers ```bash id```, ```bash data-test```, or ```bash get_by_role()``` selectors.
+* Prefers `id`, ```bash data-test```, or ```bash get_by_role()``` selectors.
 
 * Where unavailable, uses text or class-based locators.
 
