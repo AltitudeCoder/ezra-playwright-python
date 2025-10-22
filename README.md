@@ -135,5 +135,3 @@ ezra-playwright-python/
 - API-layer validation before UI submission
 
 - Integration with Slack or email alerts for CI failures
-
-
