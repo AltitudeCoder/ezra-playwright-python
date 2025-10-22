@@ -64,7 +64,7 @@ ezra-playwright-python/
 
 * Where unavailable, uses text or class-based locators.
 
-- ⚠️ May break if frontend markup changes; adding ```bashdata-test``` attributes would improve reliability.
+- ⚠️ May break if frontend markup changes; adding ```bash data-test``` attributes would improve reliability.
 
 **3. Waiting Strategy**
 
