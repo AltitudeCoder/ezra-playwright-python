@@ -69,7 +69,6 @@ ezra-playwright-python/
 ├── Ezra_Test_Cases.md                # Manual test cases
 ├── Ezra_Question2.md                 # Written response section
 └── README.md                         # This file
-
 ```
 
 ## 🧱 Architecture Overview
