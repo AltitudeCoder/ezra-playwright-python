@@ -1,38 +1,41 @@
 # 🧪 Ezra QA Automation — Playwright (Python)
 
-Automated end-to-end tests built with **Playwright + Pytest** for Ezra’s staging environment.  
-These scripts validate critical user flows such as **New Member Account creation** and **Scan Booking**.
+Automated tests built with **Playwright + Pytest** for Ezra’s staging environment.  
+These scripts validate critical user flows such as **New Member Account creation** and **Selecting a Scan**.
 
 ---
 
 ## ⚙️ Setup Instructions
 
-### 1️⃣ Clone the repository
+### 1 Clone the repository
 ```bash
-git clone https://github.com/<your-username>/ezra-playwright-python.git
+git clone https://github.com/AltitudeCoder/ezra-playwright-python.git
 cd ezra-playwright-python
+```
 
-Create a virtual environment
+### 2 Create a virtual environment
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
-
-### 2️⃣ Create a virtual environment
-python3 -m venv .venv
-source .venv/bin/activate
-
-### 3️⃣ Install dependencies
+```
+### 3 Install dependencies
+```bash
 pip install -r requirements.txt
 python -m playwright install chromium
+```
 
-### 4️⃣ Run tests
+### 4 Run tests
+```bash
 python -m pytest -s --browser=chromium --headed -n 1
+```
 
-
-To run a specific test:
-
+### 5 To run a specific test:
+```bash
 python -m pytest -s tests/test_new_member_account.py --browser=chromium --headed
+```
 
-📁 Project Structure
+## 📁 Project Structure
+```bash
 ezra-playwright-python/
 │
 ├── tests/
@@ -43,88 +46,78 @@ ezra-playwright-python/
 ├── requirements.txt                   # Dependencies
 ├── .gitignore                         # Files to ignore in Git
 └── README.md                          # This file
+```
 
-⚖️ Trade-offs & Assumptions
+## ⚖️ Trade-offs & Assumptions
 
-Authentication
+**1. Authentication**
 
-Assumes the staging login is required for protected routes.
+* Assumes the staging login is required for protected routes.
 
-Uses a single shared test user for simplicity.
+* Uses a single shared test user for simplicity.
 
-🔁 Future improvement: use environment variables for credentials (os.getenv()).
+- 🔁 Future improvement: use environment variables for credentials (```bashos.getenv()```).
 
-Selectors
+**2. Selectors**
 
-Prefers id, data-test, or get_by_role() selectors.
+* Prefers ```bash id```, ```bash data-test```, or ```bash get_by_role()``` selectors.
 
-Where unavailable, uses text or class-based locators.
+* Where unavailable, uses text or class-based locators.
 
-⚠️ May break if frontend markup changes; adding data-test attributes would improve reliability.
+- ⚠️ May break if frontend markup changes; adding ```bashdata-test``` attributes would improve reliability.
 
-Waiting Strategy
+**3. Waiting Strategy**
 
-Uses Playwright’s smart waiting (expect(...).to_be_visible, wait_until="domcontentloaded").
+* Uses Playwright’s smart waiting (```bash expect(...).to_be_visible```, ```bash wait_until="domcontentloaded"```).
 
-Avoids long sleep() calls — short, targeted waits only.
+* Avoids long ```bash sleep()``` calls — short, targeted waits only.
 
-Randomized Data
+**4. Randomized Data**
 
-Random first/last names, emails, and phone numbers for each run.
+* Random first/last names, emails, and phone numbers for each run.
 
-Prevents duplicate user creation conflicts.
+* Prevents duplicate user creation conflicts.
 
-Logs randomized data for easy debugging.
+- Logs randomized data for easy debugging.
 
-Scope
+**5. Scope**
 
-Focuses on end-user journey validation (UI layer).
+* Focuses on end-user journey validation (UI layer).
 
-Does not cover API or database verification at this stage.
+* Does not cover API or database verification at this stage.
 
-🚀 Scalability & Future Enhancements
-Area	Next Steps	Benefits
-Page Object Model (POM)	Create /pages/ directory with reusable classes	Improves readability and reduces duplicate locators
-Environment Configs	Add config.py or .env for URLs & creds	Enables easy staging vs production runs
-Reporting	Integrate Allure or pytest-html	Produces shareable HTML reports
-CI/CD Integration	Add .github/workflows/ci.yml	Auto-runs tests in GitHub Actions
-Selectors	Work with devs to add data-test attributes	More stable and less fragile tests
-🧱 Design Notes
+### 🚀 Scalability & Future Enhancements
+| Area | Next Steps |	Benefits | 
+| :------------- | :------------- |:------------- |
+| **Page Object Model (POM)**| Create `/pages/` directory and move locators/actions into classes| Improves readability, reduces duplication|
+| **Environment Configs**|	Add `config.py` or `.env` for URLs & creds | Easier multi-env testing (staging/prod)
+| **Reporting**|	Integrate Allure or pytest-html |	Produces shareable visual reports
+| **CI/CD Integration**|	Add `.github/workflows/ci.yml` |	Auto-run tests on pull requests
+| **Selectors**|	Use `data-test` attributes |	Prevents brittle locator failures |
 
-Language: Python 3.12+
 
-Frameworks: Playwright, Pytest
+## 🧱 Design Notes
 
-Execution Mode: Headed by default (for visibility)
+* Language: Python 3.12+
 
-Parallelization: Limited to -n 1 for sequential consistency
+* Frameworks: Playwright, Pytest
 
-Stability: Deterministic waits, no arbitrary sleeps
+- Execution Mode: Headed by default (easy visual verification)
 
-Output: Uses print() checkpoints for clear runtime progress
++ Parallelization: Limited to `-n 1` (ensures predictable sequencing)
 
-🧠 Example Runtime Output
++ Stability: Deterministic waits, no arbitrary sleep calls
 
-When running locally, you’ll see:
+## 🧩 Future Implementation Ideas
 
-🔐 Navigating to sign-in page...
-📩 Credentials entered.
-✅ Login successful — landed on dashboard.
-🔎 Looking for 'Book a scan' button...
-✅ 'Book a scan' visible — clicking...
-🧭 Selecting 'MRI Scan with Spine'...
-✅ Clicked MRI option #1
-✅ 'MRI Scan with Spine' selected.
-✅ Navigated to /book-scan/select-plan.
+* Data-driven tests (parametrize across different plans or user types)
 
-🧩 Future Implementation Ideas
+* Visual regression comparison for UI elements
 
-Data-driven test matrix for multiple plans or user types
+- API-layer validation before UI submission
 
-Visual regression testing
+- Integration with Slack or email alerts for CI failures
 
-API validation before form submission
++ Docker containerization for consistent environment setup
 
-Slack/Email alerts for CI failures
 
-Docker containerization for consistent environments
