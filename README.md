@@ -1,21 +1,21 @@
-# 🧾 Manual Test Cases
+#  Manual Test Cases
 
 A list of 15 detailed manual test cases created as part of this challenge can be found here:
 
-#### ➡️ [Ezra_Test_Cases.md](./Ezra_Test_Cases.md)
+####  [Ezra_Test_Cases.md](./Ezra_Test_Cases.md)
 
 The first three test cases include short descriptions explaining why I consider them the most critical.  
 The remaining cases are listed in order of priority — from most to least important.
 
 ---
 
-# 🧪 Ezra QA Automation — Playwright
+#  Ezra QA Automation — Playwright
 
 Automated tests built with **Playwright + Pytest** for Ezra’s staging environment.  
 These scripts validate critical user flows such as **New Member Account creation** and **Scan Selection flow**, following a Page Object Model (POM) architecture for scalability and maintainability.
 
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 ### 1 Clone the repository
 ```bash
@@ -44,7 +44,7 @@ python -m pytest -s -v --browser=chromium --headed -n 1
 python -m pytest -s -v tests/test_login_and_scan_select.py --browser=chromium --headed
 ```
 
-## 📁 Project Structure
+##  Project Structure
 ```bash
 ezra-playwright-python/
 │
@@ -71,7 +71,7 @@ ezra-playwright-python/
 └── README.md                         # This file
 ```
 
-## 🧱 Architecture Overview
+##  Architecture Overview
 
 #### Framework:
 
@@ -89,7 +89,7 @@ ezra-playwright-python/
 
 * Configurable through pytest.ini
 
-## ⚖️ Trade-offs & Assumptions
+##  Trade-offs & Assumptions
 
 | Area               | Decision                                        | Rationale                                           |
 | :------------------ | :--------------------------------------------- | :-------------------------------------------------- |
@@ -100,7 +100,7 @@ ezra-playwright-python/
 | **Reporting**      | Console logs for now                            | Easy to add pytest-html or Allure later             |
 
 
-### 🚀 Scalability & Future Enhancements
+###  Scalability & Future Enhancements
 
 | Area                    | Next Steps                        | Benefit                                   |
 | ----------------------- | --------------------------------- | ----------------------------------------- |
@@ -112,7 +112,7 @@ ezra-playwright-python/
 
 
 
-## 🧱 Design Notes
+##  Design Notes
 
 * **Language:** Python 3.13
 
@@ -126,7 +126,7 @@ ezra-playwright-python/
   
 + **OS:** macOS (Chromium browser installed via Playwright)
 
-## 🧩 Future Implementation Ideas
+##  Future Implementation Ideas
 
 * Data-driven tests (parametrize across different plans or user types)
 
